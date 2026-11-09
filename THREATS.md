@@ -92,15 +92,12 @@ This document identifies security risks in SmartShop, the protections implemente
 
 
 
-\### Test 3: Invalid or expired JWT
+### Test 3: Invalid or expired JWT
 
-
-
-\- Request: Access a protected endpoint with an invalid or expired token.
-
-\- Expected: HTTP 401.
-
-\- Result: Pending.
+- Request: Access a protected endpoint with an invalid token.
+- Expected: HTTP 401.
+- Observed: `Invalid or expired token`.
+- Result: Passed.
 
 
 
