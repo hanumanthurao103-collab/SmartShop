@@ -101,18 +101,12 @@ This document identifies security risks in SmartShop, the protections implemente
 
 
 
-\### Test 4: Password hashing
+### Test 4: Password hashing
 
-
-
-\- Register a customer and verify that the stored password is a bcrypt hash rather than the original password.
-
-\- Expected: The original password is never stored.
-
-\- Result: Pending database verification.
-
-
-
+- Action: Registered a separate test customer.
+- Expected: The original password is hashed before database storage and is never returned by the registration API.
+- Observed: Registration succeeded. The API response returned user details without a password field. Source code uses bcrypt.hash(password, 12).
+- Result: Registration and response checks passed; database hash verification pending.
 \### Test 5: Invalid product data
 
 
