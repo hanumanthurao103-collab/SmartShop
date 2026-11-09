@@ -1,6 +1,6 @@
 const express = require("express");
 const Product = require("../models/Product");
-
+const { protect, adminOnly } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 // Get all products
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 });
 
 // Add a new product
-router.post("/", async (req, res) => {
+router.post("/", protect, adminOnly, async (req, res) => {
   try {
     const { name, description, price, category, stock, imageUrl } = req.body;
 
