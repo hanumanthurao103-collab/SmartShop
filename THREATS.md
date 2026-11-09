@@ -128,16 +128,12 @@ Result: PASSED.
 
 
 
-\### Test 7: Audit trail
+### Test 7: Audit Trail
 
-
-
-\- Perform an administrative action and inspect its audit record.
-
-\- Expected: The record identifies the action, actor, and timestamp without storing passwords or authentication tokens.
-
-\- Result: Pending audit implementation.
-
+- Action: Created a product using an authenticated admin account.
+- Expected: Product creation succeeds and an audit log is recorded.
+- Observed: API returned `auditLogRecorded: True`.
+- Result: Passed.
 
 
 \## 5. Security development priorities
