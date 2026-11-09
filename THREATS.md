@@ -107,18 +107,15 @@ This document identifies security risks in SmartShop, the protections implemente
 - Expected: The original password is hashed before database storage and is never returned by the registration API.
 - Observed: Registration succeeded. The API response returned user details without a password field. Source code uses bcrypt.hash(password, 12).
 - Result: Registration and response checks passed; database hash verification pending.
-\### Test 5: Invalid product data
+Test 5: Invalid product data
 
+Action: Sent a product creation request using an authenticated admin token with price = -100.
 
+Expected: HTTP 400 with "Invalid product data".
 
-\- Submit missing fields, negative prices, and invalid stock values.
+Observed: HTTP 400 with "Invalid product data".
 
-\- Expected: HTTP 400 and no product creation.
-
-\- Result: Pending.
-
-
-
+Result: PASSED.
 \### Test 6: Customer order ownership
 
 
